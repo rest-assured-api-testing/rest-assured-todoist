@@ -23,7 +23,7 @@ public class Projects {
         apiRequest.setEndpoint("/projects");
         apiRequest.setMethod(ApiMethod.GET);
 
-        ApiResponse apiResponse = new ApiResponse(ApiManager.execute(apiRequest));
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
     }
 
@@ -36,7 +36,7 @@ public class Projects {
         apiRequest.setMethod(ApiMethod.GET);
         apiRequest.addPathParam("projectId", "2212086923");
 
-        ApiResponse apiResponse = new ApiResponse(ApiManager.execute(apiRequest));
+        ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Project project = apiResponse.getBody(Project.class);
         System.out.println("---"+project.getName());
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
