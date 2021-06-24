@@ -19,20 +19,20 @@ public class ApiManager {
                 .log().all();
     }
 
-    public static ApiResponse execute(ApiRequest apiRequest){
+    public static void execute(ApiRequest apiRequest, ApiResponse apiResponse){
         Response response = buildRequest(apiRequest)
                 .request(apiRequest.getMethod().name()
                         ,apiRequest.getEndpoint());
 
-        return new ApiResponse(response);
+        apiResponse.setResponse(response);
     }
 
-    public static ApiResponse executeWithBody(ApiRequest apiRequest){
+    public static void executeWithBody(ApiRequest apiRequest, ApiResponse apiResponse){
         Response response = buildRequest(apiRequest)
                 .body(apiRequest.getBody())
                 .request(apiRequest.getMethod().name()
                         ,apiRequest.getEndpoint());
 
-        return new ApiResponse(response);
+        apiResponse.setResponse(response);
     }
 }

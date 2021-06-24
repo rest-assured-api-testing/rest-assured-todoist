@@ -75,6 +75,9 @@ public class ApiRequest {
     public void addPathParam(final String param, final String value) {
         pathParms.put(param, value);
     }
+    public void clear() {
+        pathParms.clear();
+    }
 
     public Headers getHeaders() {
         return new Headers(headers);

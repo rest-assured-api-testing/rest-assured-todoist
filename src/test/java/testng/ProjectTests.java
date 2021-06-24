@@ -1,9 +1,10 @@
+package testng;
+
 import api.ApiManager;
 import api.ApiMethod;
 import api.ApiRequest;
 import api.ApiResponse;
 import entities.Project;
-import io.restassured.response.Response;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -38,7 +39,7 @@ public class Projects {
 
         ApiResponse apiResponse = ApiManager.execute(apiRequest);
         Project project = apiResponse.getBody(Project.class);
-        System.out.println("---"+project.getName());
+        System.out.println("---" + project.getName());
         Assert.assertEquals(apiResponse.getStatusCode(), 200);
         Assert.assertEquals(project.getColor(), 48);
         apiResponse.validateBodySchema("schemas/project.json");

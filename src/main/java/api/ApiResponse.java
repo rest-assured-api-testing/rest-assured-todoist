@@ -11,9 +11,14 @@ public class ApiResponse {
     public ApiResponse(Response response) {
         this.response = response;
     }
-
+    public ApiResponse() {
+    }
     public Response getResponse() {
         return response;
+    }
+
+    public void setResponse(Response response) {
+        this.response = response;
     }
 
     public int getStatusCode() {
